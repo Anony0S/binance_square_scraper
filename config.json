@@ -28,7 +28,7 @@
   "scheduler_config": {
     "enabled": true,
     "interval_hours": 0,
-    "interval_minutes": 1,
+    "interval_minutes": 5,
     "headless": true,
     "run_immediately": true
   },
