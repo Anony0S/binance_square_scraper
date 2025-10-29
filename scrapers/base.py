@@ -53,6 +53,15 @@ class BaseScraper:
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
             "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
+        
+        options.set_argument('--no-sandbox')
+        options.set_argument('--disable-gpu')
+        options.set_argument('--disable-setuid-sandbox')
+        options.set_argument('--headless=new')
+        options.set_argument('--remote-debugging-port=9222')
+
+        # 指定临时用户目录避免冲突
+        options.set_argument('--user-data-dir=/tmp/chrome-debug')
 
         return options
 
