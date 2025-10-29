@@ -1,0 +1,30 @@
+[Unit]
+Description=Binance Square Scraper Service
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Group=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/projects/binance-scraper
+Environment="PATH=/home/YOUR_USERNAME/projects/binance-scraper/venv/bin"
+ExecStart=/home/YOUR_USERNAME/projects/binance-scraper/venv/bin/python run_scheduler.py
+
+# 自动重启配置
+Restart=always
+RestartSec=10
+
+# 日志输出
+StandardOutput=append:/home/YOUR_USERNAME/projects/binance-scraper/logs/service.log
+StandardError=append:/home/YOUR_USERNAME/projects/binance-scraper/logs/service_error.log
+
+# 安全配置
+NoNewPrivileges=true
+PrivateTmp=true
+
+# 资源限制 (可选)
+# MemoryLimit=2G
+# CPUQuota=100%
+
+[Install]
+WantedBy=multi-user.target

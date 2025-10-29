@@ -1,0 +1,58 @@
+{
+  "kol_username": "goingsun",
+  "scrape_method": "auto",
+  "api_config": {
+    "base_url": "https://www.binance.com",
+    "profile_endpoint": "",
+    "articles_endpoint": "",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Accept": "application/json, text/plain, */*",
+      "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
+    },
+    "params": {
+      "page": 1,
+      "size": 20
+    }
+  },
+  "drission_config": {
+    "headless": false,
+    "scroll_times": 3,
+    "max_articles": 10,
+    "selectors": {
+      "title": "[class*=\"title\"]",
+      "content": "[class*=\"content\"]",
+      "time": "[class*=\"time\"]"
+    }
+  },
+  "scheduler_config": {
+    "enabled": true,
+    "interval_hours": 0,
+    "interval_minutes": 1,
+    "headless": true,
+    "run_immediately": true
+  },
+  "database": {
+    "db_path": "database/binance_square.db"
+  },
+  "output": {
+    "save_to_file": true,
+    "file_format": "json",
+    "output_dir": "data"
+  },
+  "advanced": {
+    "request_delay": 1,
+    "max_retries": 3,
+    "timeout": 30,
+    "enable_logging": true,
+    "log_level": "INFO"
+  },
+  "feishu": {
+    "enabled": true,
+    "webhook_url": "https://open.feishu.cn/open-apis/bot/v2/hook/ddbefc6a-4bca-41bf-880d-a854bab560c1",
+    "app_id": "",
+    "app_secret": "",
+    "receive_id": "",
+    "receive_id_type": "chat_id"
+  }
+}

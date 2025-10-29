@@ -1,0 +1,26 @@
+# 币安广场爬虫项目依赖
+
+# 基础HTTP请求库
+requests>=2.31.0
+httpx>=0.25.0
+
+# 浏览器自动化
+DrissionPage>=4.0.0
+
+# 数据处理
+pandas>=2.0.0
+
+# 日志和配置
+python-dotenv>=1.0.0
+
+# 定时任务调度
+APScheduler>=3.10.0
+
+# 可选：数据库支持
+# pymongo>=4.5.0
+# sqlalchemy>=2.0.0
+
+# 可选：更多浏览器自动化工具（根据需要选择）
+# selenium>=4.15.0
+# undetected-chromedriver>=3.5.4
+# playwright>=1.40.0
