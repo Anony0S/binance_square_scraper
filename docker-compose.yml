@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  binance-scraper:
+    build: .
+    container_name: binance-scraper
+    restart: unless-stopped
+
+    # 挂载卷 - 持久化数据
+    volumes:
+      - ./database:/app/database
+      - ./logs:/app/logs
+      - ./config.json:/app/config.json:ro
+
+    # 环境变量
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+    # 日志配置
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # 共享内存大小 (Chrome 需要)
+    shm_size: '2gb'
+
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
