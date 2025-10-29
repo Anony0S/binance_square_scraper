@@ -93,6 +93,11 @@ class BinanceSquareScraper(BaseScraper):
                 confirm_ele.ele("tag=button").click()
             except Exception as e:
                 logger.error(f"未点击到弹窗: {str(e)}")
+                
+            # 等待页面主要内容加载
+            self.page.ele(".:FeedList", timeout=2).wait.displayed(timeout=2)
+            # 截屏
+            self.page.screenshot(f"logs/screenshots/{self.kol_username}_profile.png")
             return True
 
         except Exception as e:
