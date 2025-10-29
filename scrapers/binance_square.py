@@ -97,7 +97,7 @@ class BinanceSquareScraper(BaseScraper):
             # 等待页面主要内容加载
             self.page.ele(".:FeedList", timeout=2).wait.displayed(timeout=2)
             # 截屏
-            self.page.screenshot(f"logs/screenshots/{self.kol_username}_profile.png")
+            self.page.get_screenshot(path='logs/screenshots/', name=f'{self.kol_username}_profile.png')
             return True
 
         except Exception as e:
